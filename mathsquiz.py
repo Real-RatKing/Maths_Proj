@@ -18,7 +18,7 @@ def name():  # Function to handle the current user id(if they were already store
                     currentuser = (len(scores) - 1)
                     global currentuser
                     return currentuser
-                    
+
 
                 else:
                     if scores[x][0] == -2:
@@ -26,13 +26,13 @@ def name():  # Function to handle the current user id(if they were already store
                         currentuser = x
                         scores[x][0] = userinput
                         return currentuser
-                        
+
 
         if userinput == scores[i][0]:  # user already exists
             global currentuser
             currentuser = i
             return currentuser
-            
+
 
             # If the current user is not 0 then its an already existing user
 
@@ -99,6 +99,16 @@ def averages_calculator():
 
         if (scores[i][3] >= -1)  and (scores[i][0]!= -2):
             scores[i][4] = ((scores[i][2]) + (scores[i][1]) + (scores[i][3])) / 3
+def readwrite():
+    saveFile = open('results.txt', 'w')
+    for i in range(len(scores)):
+        if scores[i][1] != -2:
+            for x in range(5):
+                saveFile.write(str(scores[i][x]))
+                saveFile.write(' ')
+            saveFile.write('\n')
+
+    saveFile.close
 
 
 # Start of Program
@@ -111,7 +121,7 @@ while choice == 'loop':
     choice2 = 'error'
     while choice2 == 'error':
         choice2 = input(
-            'Would you like to display all the results or repeat for a new user? \nType ''repeat'' or ''display''\n')
+            'Would you like to display all the results, repeat for a new user or save data to a file? \nType ''repeat'' or ''display'' or ''save''\n')
         if choice2 == 'repeat':
             choice = 'loop'
             break
@@ -119,5 +129,9 @@ while choice == 'loop':
             averages_calculator()
             results_display()
             break
+        if choice2 == 'save':
+            readwrite()
+            break
         if choice2 != 'loop' or 'display':
             print('Sorry that was an invalid choice, please try again')
+
