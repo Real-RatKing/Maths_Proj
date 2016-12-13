@@ -121,17 +121,3 @@ while choice == 'loop':
             break
         if choice2 != 'loop' or 'display':
             print('Sorry that was an invalid choice, please try again')
-
-
-
-
-
-
-
-
-# Changelist
-# V.10 Initial release, only stores one result, name check assumes if it cant find the user then no other users exist
-# V.20 Set up proper bubble sorting to move the most recent result to the lowest element on the scores array, average score also calculated
-# V.30 New users trying to save data to an already full list now the size of the list is increased with the appropiate variables changed
-# V.35 Average score now accounts for how many actual elements contain data recorded from the quiz
-# V.40 Fixed numerous bugs, name handling should now be consistent
