@@ -5,10 +5,9 @@ choice = 'loop'
 choice2 = 'error'
 
 
-
 def name():  # Function to handle the current user id(if they were already stored in the DB)
     userinput = (str(input('What is your name\n')))
-    for i in range(len(scores)+1):
+    for i in range(len(scores) + 1):
 
         if i == len(scores):  # Fires when i is one larger than the largest element ID in scores
             for x in range(len(scores)):
@@ -27,7 +26,6 @@ def name():  # Function to handle the current user id(if they were already store
                         scores[x][0] = userinput
                         return currentuser
 
-
         if userinput == scores[i][0]:  # user already exists
             global currentuser
             currentuser = i
@@ -38,7 +36,7 @@ def name():  # Function to handle the current user id(if they were already store
 
 
 def quiz(counter=0):
-    for i in range(1, 2):  #TODO Change to 1,11 so there are 10 questions for real version
+    for i in range(1, 2):  # TODO Change to 1,11 so there are 10 questions for real version
         num1 = random.randint(1, 20)  # Generate first random number
         num2 = random.randint(1, 20)  # Generate first random number
         operator = random.choice(["+", "*", "-"])
@@ -91,14 +89,16 @@ def results_display():
 def averages_calculator():
     for i in range(len(scores)):
 
-        if ((scores[i][2]) and (scores[i][3]) == -2) and (scores[i][0]!= -2):
+        if ((scores[i][2]) and (scores[i][3]) == -2) and (scores[i][0] != -2):
             scores[i][4] = scores[i][1]
 
-        if ((scores[i][3]) == -2) and ((scores[i][2]) > -1)  and (scores[i][0]!= -2):
+        if ((scores[i][3]) == -2) and ((scores[i][2]) > -1) and (scores[i][0] != -2):
             scores[i][4] = ((scores[i][2]) + (scores[i][1])) / 2
 
-        if (scores[i][3] >= -1)  and (scores[i][0]!= -2):
+        if (scores[i][3] >= -1) and (scores[i][0] != -2):
             scores[i][4] = ((scores[i][2]) + (scores[i][1]) + (scores[i][3])) / 3
+
+
 def readwrite():
     saveFile = open('results.txt', 'w')
     for i in range(len(scores)):
@@ -134,4 +134,3 @@ while choice == 'loop':
             break
         if choice2 != 'loop' or 'display':
             print('Sorry that was an invalid choice, please try again')
-
