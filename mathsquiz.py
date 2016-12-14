@@ -99,13 +99,14 @@ def averages_calculator():
             scores[i][4] = ((scores[i][2]) + (scores[i][1]) + (scores[i][3])) / 3
 
 
-def readwrite():
-    saveFile = open('results.txt', 'w')
+def read():
+    saveFile = open('results.csv', 'w') #writing to a comma seperated values file
     for i in range(len(scores)):
         if scores[i][1] != -2:
-            for x in range(5):
+            for x in range(4):
                 saveFile.write(str(scores[i][x]))
-                saveFile.write(' ')
+                saveFile.write(',') #comma seperates each element
+            saveFile.write(str(scores[i][4]))
             saveFile.write('\n')
 
     saveFile.close
