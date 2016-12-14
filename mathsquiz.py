@@ -106,9 +106,28 @@ def readwrite():
             for x in range(5):
                 saveFile.write(str(scores[i][x]))
                 saveFile.write(' ')
-            saveFile.write('\n')
+        saveFile.write('.\n')
 
     saveFile.close
+
+
+def read():
+    contents = results.read()
+    listy = contents.split(".")
+    for i in range (contents.count('.')):
+        list2 = []
+        list2.append()
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Start of Program
